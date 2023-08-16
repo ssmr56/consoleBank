@@ -1,50 +1,40 @@
-#include <iostream>
 #include "Bank.h"
+#include <iostream>
 
-void Bank::viewBalance(double balance) 
+Bank::Bank() : _balance(1000.0)
 {
-    std::cout << "Остаток баланса: " << balance << " гривен" << std::endl;
 }
 
-void Bank::deposit(double& balance) 
+void Bank::viewBalance(double balance) const
 {
-    double summa;
-    std::cout << "Введите сумму для пополнения: ";
-    std::cin >> summa;
+    std::cout << "Your balance: " << balance << " grn\n";
+}
 
-    if (summa > 0) 
+void Bank::deposit(double& balance, double amount) 
+{
+    balance += amount;
+    std::cout << "Deposited " << amount << " grn\n";
+}
+
+void Bank::withdraw(double& balance, double amount) 
+{
+    if (balance >= amount) 
     {
-        balance += summa;
-        std::cout << "Баланс успешно пополнен. Новый баланс: " << balance << " гривен" << std::endl;
+        balance -= amount;
+        std::cout << "Withdrawn " << amount << " grn\n";
     }
     else {
-        std::cout << "Неверная сумма для пополнения." << std::endl;
+        std::cout << "Insufficient funds\n";
     }
 }
 
-void Bank::withdraw(double& balance) 
-{
-    double withdrawmoney;
-    std::cout << "Введите сумму для снятия: ";
-    std::cin >> withdrawmoney;
 
-    if (withdrawmoney > 0 && withdrawmoney <= balance) 
-    {
-        balance -= withdrawmoney;
-        std::cout << "Вы успешно сняли " << withdrawmoney << " гривен. Новый баланс: "
-            << balance << " гривен" << std::endl;
-    }
-    else 
-    {
-        std::cout << "Неверная сумма для снятия или недостаточно средств на счете." << std::endl;
-    }
+double Bank::getBalance() const
+{
+    return _balance;
 }
 
-void Bank::changePin(int& Pin) 
+void Bank::setBalance(double newBalance) 
 {
-    int newPin;
-    std::cout << "Введите новый пин код: ";
-    std::cin >> newPin;
-    Pin = newPin;
-    std::cout << "Пин код успешно изменен." << std::endl;
+    _balance = newBalance;
 }

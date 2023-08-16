@@ -1,9 +1,12 @@
-#include "Bankomat.h"
+#include "MainController.h"
+#include <iostream>
 
 int main() 
 {
-    Bankomat bankomat;
-    bankomat.run();
+    MainController* mainController = new MainController;
+    mainController->start();
+   
 
+    delete mainController;
     return 0;
 }

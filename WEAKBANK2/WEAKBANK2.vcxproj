@@ -130,12 +130,18 @@
     <ClCompile Include="Bank.cpp" />
     <ClCompile Include="Bankomat.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="DataBaseClient.cpp" />
+    <ClCompile Include="MainController.cpp" />
+    <ClCompile Include="MessageController.cpp" />
     <ClCompile Include="WEAKBANK2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bank.h" />
     <ClInclude Include="Bankomat.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="DataBaseClient.h" />
+    <ClInclude Include="MainController.h" />
+    <ClInclude Include="MessageController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
